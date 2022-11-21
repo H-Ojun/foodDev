@@ -67,6 +67,27 @@ public class Payment  {
 
         
     }
+    public static void pay(OrderPlaced orderPlaced){
+
+        /** Example 1:  new item 
+        Payment payment = new Payment();
+        repository().save(payment);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(orderPlaced.get???()).ifPresent(payment->{
+            
+            payment // do something
+            repository().save(payment);
+
+
+         });
+        */
+
+        
+    }
 
 
 }

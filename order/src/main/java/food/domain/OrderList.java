@@ -48,12 +48,8 @@ public class OrderList  {
 
         OrderPlaced orderPlaced = new OrderPlaced(this);
         orderPlaced.publishAfterCommit();
-
-        food.external.Payment payment = new food.external.Payment();
-        payment.setOrderId(orderPlaced.getId());
-        OrderApplication.applicationContext.getBean(food.external.PaymentService.class)
-            .pay(payment);
     }
+    
     @PreRemove
     public void onPreRemove() throws Exception {
         if ("OrderPlace".equals(status) || "OrderAccept".equals(status)) {
