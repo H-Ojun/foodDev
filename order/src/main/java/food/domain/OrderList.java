@@ -45,15 +45,6 @@ public class OrderList  {
     @PostPersist
     public void onPostPersist(){
 
-        //Following code causes dependency to external APIs
-        // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
-
-
-        food.external.Payment payment = new food.external.Payment();
-        // mappings goes here
-        OrderApplication.applicationContext.getBean(food.external.PaymentService.class)
-            .pay(payment);
-
 
         OrderPlaced orderPlaced = new OrderPlaced(this);
         orderPlaced.publishAfterCommit();
