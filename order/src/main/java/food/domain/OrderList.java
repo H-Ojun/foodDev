@@ -44,28 +44,25 @@ public class OrderList  {
 
     @PostPersist
     public void onPostPersist(){
-
-        //Following code causes dependency to external APIs
-        // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
-
-
-        food.external.Payment payment = new food.external.Payment();
-        // mappings goes here
-        OrderApplication.applicationContext.getBean(food.external.PaymentService.class)
-            .pay(payment);
-
+        this.status = "OrderPlace";
 
         OrderPlaced orderPlaced = new OrderPlaced(this);
         orderPlaced.publishAfterCommit();
 
+        food.external.Payment payment = new food.external.Payment();
+        payment.setOrderId(orderPlaced.getId());
+        OrderApplication.applicationContext.getBean(food.external.PaymentService.class)
+            .pay(payment);
     }
     @PreRemove
-    public void onPreRemove(){
-
-
-        OrderCanceled orderCanceled = new OrderCanceled(this);
-        orderCanceled.publishAfterCommit();
-
+    public void onPreRemove() throws Exception {
+        if ("OrderPlace".equals(status) || "OrderAccept".equals(status)) {
+            this.status = "OrderCancel";
+            OrderCanceled orderCanceled = new OrderCanceled(this);
+            orderCanceled.publishAfterCommit();
+        } else {
+            throw new Exception(this.status);
+        }
     }
 
     public static OrderListRepository repository(){
