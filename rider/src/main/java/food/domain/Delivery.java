@@ -32,9 +32,9 @@ public class Delivery  {
     
     
     
-    @Embedded
     
-    private Address address;
+    
+    private String address;
     
     
     

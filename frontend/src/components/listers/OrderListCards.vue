@@ -69,7 +69,7 @@
             
             me.newValue = {
                 'foodId': '',
-                'address': {},
+                'address': '',
                 'status': '',
             }
         },

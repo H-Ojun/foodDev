@@ -102,7 +102,7 @@
             
             this.newValue = {
                 'foodId': '',
-                'address': {},
+                'address': '',
                 'status': '',
             }
         },

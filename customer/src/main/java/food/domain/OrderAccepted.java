@@ -11,7 +11,7 @@ public class OrderAccepted extends AbstractEvent {
     private Long id;
     private Long orderId;
     private String status;
-    private Object address;
+    private String address;
 }
 
 

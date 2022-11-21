@@ -32,9 +32,9 @@ public class OrderList  {
     
     
     
-    @Embedded
     
-    private Address address;
+    
+    private String address;
     
     
     

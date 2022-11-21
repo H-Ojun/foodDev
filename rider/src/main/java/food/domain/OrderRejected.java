@@ -12,7 +12,7 @@ public class OrderRejected extends AbstractEvent {
     private Long orderId;
     private String foodId;
     private String status;
-    private Object address;
+    private String address;
 }
 
 

@@ -11,7 +11,7 @@ public class OrderCanceled extends AbstractEvent {
 
     private Long id;
     private String foodId;
-    private Address address;
+    private String address;
     private String status;
 
     public OrderCanceled(OrderList aggregate){

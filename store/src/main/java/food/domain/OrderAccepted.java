@@ -12,7 +12,7 @@ public class OrderAccepted extends AbstractEvent {
     private Long id;
     private Long orderId;
     private String status;
-    private Address address;
+    private String address;
 
     public OrderAccepted(FoodCooking aggregate){
         super(aggregate);

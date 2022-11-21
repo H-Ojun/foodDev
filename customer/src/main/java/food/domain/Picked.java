@@ -10,7 +10,7 @@ public class Picked extends AbstractEvent {
 
     private Long id;
     private Long orderId;
-    private Object address;
+    private String address;
     private String status;
 }
 

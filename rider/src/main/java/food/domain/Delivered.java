@@ -11,7 +11,7 @@ public class Delivered extends AbstractEvent {
 
     private Long id;
     private Long orderId;
-    private Address address;
+    private String address;
     private String status;
 
     public Delivered(Delivery aggregate){

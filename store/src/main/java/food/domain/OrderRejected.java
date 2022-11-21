@@ -13,7 +13,7 @@ public class OrderRejected extends AbstractEvent {
     private Long orderId;
     private String foodId;
     private String status;
-    private Address address;
+    private String address;
 
     public OrderRejected(FoodCooking aggregate){
         super(aggregate);

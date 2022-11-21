@@ -7,7 +7,7 @@ public class OrderList {
 
     private Long id;
     private String foodId;
-    private Object address;
+    private String address;
     private String status;
 }
 
